@@ -1,6 +1,13 @@
 # Diary of a Caravaneer
 
-## Contents
+## Table of Contents
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Trading System](#trading-system)
+- [Inventory System](#inventory-system)
+- [Mission System](#mission-system)
+- [Contributing](#contributing)
+- [License](#license)
 
 ### Overview
 **Diary of a Caravaneer** is a trade and economic simulator RPG game developed in Ren'Py. Players take on the role of a merchant traveling with their son and daughter through a world on the brink of chaos. The goal is to earn enough money to escape to Vaelris before the outbreak of the Balenvhenian Scramble. The game combines mechanics of buying and selling, managing a food cart, and interacting with the family.
@@ -36,3 +43,37 @@ The game is set in the fictional world of Balen Saga, in the time before the Bal
 - Stardew Valley
 - Moonlighter
 - Travellers Rest
+
+
+### Project Structure
+
+The project is made using Ren'Py. The current plugins implemented into the project are:
+- [AutoHighlight](https://wattson.itch.io/renpy-auto-highlight)
+
+
+### Trading System
+
+The game aims to have a close-to real medieval trading experience. 
+
+- Each store has the variables of **"StoreType"** and **"StoreEconomicPower"**
+  - Each item per-store has a **"BaseStock"**, **"RestockTimer"**, **"RestockAmount"**
+- Each location has **"LocationEconomicPower"**
+  - Each item per-location has a variable of **"ItemDemand"** and **"Item**
+ 
+The buy price and sell price of each item is determined by a complex formula that aims to simulate that realistic medieval trading experience. 
+
+When a player buys an item, the stock gets reduced by the amount that the player bought (if the amount reaches 0 then the player can't buy that specific item from that specific shop until the stock is back to higher than 0), and the location economic power variable increases by the price of the item sold multiplied by 1% (With a maximum of 100), and the location demand of the item increases in proportion of how many items are left in the stock vs the base stock value (the higher the difference between items, the higher the demand value, with a maximum value of 100). 
+
+The store type affects the type of items a store accepts to buy from the player (The items sold by the store are determined through code), and the store economic power starts at a base value and increases or decreases through random hidden events, modifiers and mainly through player interaction, as the power increases as the player buys items from a store, and decreases when the store buys items from the player. Then we do some formulas hidden from the player to simulate the store handling that inventory to determine an outcome: The store "sells the items succesfully" and the store economic power returns to normal, or the store "fails to sell the items" and their power returns proportionally to how successful or unsuccessful they were. 
+
+Additionally, the buy and sell final prices are affected by the Item Demand, as the amount of items in stock in proportion at the base stock at a specific location proportionally affects the demand of said item at that location. So, if Cragbrook has a high demand for Wood, the stores that handle Wood will buy Wood at a higher price, and also sell it at a higher price. The item demand of each city per location also have a permanent variable and a dynamic variable to effectively simulate if a location is actually a producer of that item, like Cragbrook is a producer of stone, and to simulate if there's a global modifier like a "Massive Request for Salt" which affects the prices globally.
+
+The Buy formula is: TBD
+The Sell formula is: TBD
+
+
+### Inventory System
+
+
+
+
