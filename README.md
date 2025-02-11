@@ -53,23 +53,44 @@ The project is made using Ren'Py. The current plugins implemented into the proje
 
 ### Trading System
 
+- [Overview of the Trading System](#trading-system-overview)
+- [Trading System Formulas](#trading-system-formulas)
+
+#### Trading System Overview
+
 The game aims to have a close-to real medieval trading experience. 
 
-- Each store has the variables of **"StoreType"** and **"StoreEconomicPower"**
+- Each store has the variables of **StoreGold**, **"StoreType"** and **"StoreEconomicPower"**
   - Each item per-store has a **"BaseStock"**, **"RestockTimer"**, **"RestockAmount"**
 - Each location has **"LocationEconomicPower"**
-  - Each item per-location has a variable of **"ItemDemand"** and **"Item**
+  - Each item per-location has a variable of **"ItemDemand"** 
  
 The buy price and sell price of each item is determined by a complex formula that aims to simulate that realistic medieval trading experience. 
 
+A store can't buy items from the player if they don't have enough StoreGold to buy it.
+
 When a player buys an item, the stock gets reduced by the amount that the player bought (if the amount reaches 0 then the player can't buy that specific item from that specific shop until the stock is back to higher than 0), and the location economic power variable increases by the price of the item sold multiplied by 1% (With a maximum of 100), and the location demand of the item increases in proportion of how many items are left in the stock vs the base stock value (the higher the difference between items, the higher the demand value, with a maximum value of 100). 
 
-The store type affects the type of items a store accepts to buy from the player (The items sold by the store are determined through code), and the store economic power starts at a base value and increases or decreases through random hidden events, modifiers and mainly through player interaction, as the power increases as the player buys items from a store, and decreases when the store buys items from the player. Then we do some formulas hidden from the player to simulate the store handling that inventory to determine an outcome: The store "sells the items succesfully" and the store economic power returns to normal, or the store "fails to sell the items" and their power returns proportionally to how successful or unsuccessful they were. 
+The store type affects the type of items a store accepts to buy from the player (The items sold by the store are determined through code), and the store economic power starts at a base value and increases or decreases through random hidden events, modifiers and mainly through player interaction, as the power increases as the player buys items from a store, and decreases when the store buys items from the player. Then we do some formulas hidden from the player to simulate the store handling that inventory to determine an outcome: The store "sells the items succesfully" and the store economic power returns to normal, or the store "fails to sell the items" and their power returns proportionally to how successful or unsuccessful they were. Store Gold might seem like a duplicate variable of Store Economic Power, but the Gold value means the cash liquidity of the store, so the real relation is that the Store Gold value is directly proportionate to the Store Economic Power. 
 
 Additionally, the buy and sell final prices are affected by the Item Demand, as the amount of items in stock in proportion at the base stock at a specific location proportionally affects the demand of said item at that location. So, if Cragbrook has a high demand for Wood, the stores that handle Wood will buy Wood at a higher price, and also sell it at a higher price. The item demand of each city per location also have a permanent variable and a dynamic variable to effectively simulate if a location is actually a producer of that item, like Cragbrook is a producer of stone, and to simulate if there's a global modifier like a "Massive Request for Salt" which affects the prices globally.
 
+#### Trading System Formulas
+
 The Buy formula is: TBD
+
 The Sell formula is: TBD
+
+Store Gold formula: TBD
+
+Store Economic Power formula: TBD
+
+Location Economic Power formula: TBD
+
+Item Demand formula: TBD
+
+
+The sell price of an item can't be higher than the buy price of that same item in that same store. This works as the motivator for players to rotate around locations, buying items where they are cheap and selling them where they are expensive. 
 
 
 ### Inventory System
