@@ -10,6 +10,7 @@
 - [License](#license)
 
 ### Overview
+
 **Diary of a Caravaneer** is a trade and economic simulator RPG game developed in Ren'Py. Players take on the role of a merchant traveling with their son and daughter through a world on the brink of chaos. The goal is to earn enough money to escape to Vaelris before the outbreak of the Balenvhenian Scramble. The game combines mechanics of buying and selling, managing a food cart, and interacting with the family.
 
 #### Platform
@@ -50,6 +51,7 @@ The game is set in the fictional world of Balen Saga, in the time before the Bal
 The project is made using Ren'Py. The current plugins implemented into the project are:
 - [AutoHighlight](https://wattson.itch.io/renpy-auto-highlight)
 
+Each separate system (Inventory, Trading, etc.) is separated into their own scripts and referenced when needed. 
 
 ### Trading System
 
