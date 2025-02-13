@@ -97,6 +97,8 @@ The sell price of an item can't be higher than the buy price of that same item i
 
 ### Inventory System
 
+The player is able to carry any X amount of different items at all times, but they have a Weight limit that blocks them from adding more items to their inventory if they are over that limit. 
 
+Each item has the variables of "BasePrice", "Weight", and "Name" "Description" "Sprite", and the item-related variables found in the Trading System are not directly attached to the item itself but they do reference the item (Meaning that those values influence the actions related to the item like buying or selling, but are not variables of the item per-se). 
 
 
