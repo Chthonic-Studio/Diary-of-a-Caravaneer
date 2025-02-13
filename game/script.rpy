@@ -17,4 +17,4 @@ label start:
     menu:
         "Go to Testing Screen":
             call screen testing_screen()
-
+    return

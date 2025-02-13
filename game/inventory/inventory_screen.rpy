@@ -63,6 +63,8 @@ screen inventory_screen(inventory):
     tag menu
     add "images/ui/PaperBookIdle.png"  # Background image for the inventory screen
 
+    key "i" action [Hide("sub_menu"), Hide("book_menu")]
+
     frame:
         xalign 0.5
         yalign 0.5
