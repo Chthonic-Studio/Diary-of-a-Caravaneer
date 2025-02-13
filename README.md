@@ -97,8 +97,24 @@ The sell price of an item can't be higher than the buy price of that same item i
 
 ### Inventory System
 
-The player is able to carry any X amount of different items at all times, but they have a Weight limit that blocks them from adding more items to their inventory if they are over that limit. 
+- [Overview of the Inventory System](#inventory-system-overview)
+- [Inventory System Key Files and Implementation](#inventorys-system-key-files-and-implementation)
+
+#### Overview of the Inventory System
 
 Each item has the variables of "BasePrice", "Weight", and "Name" "Description" "Sprite", and the item-related variables found in the Trading System are not directly attached to the item itself but they do reference the item (Meaning that those values influence the actions related to the item like buying or selling, but are not variables of the item per-se). 
+
+It includes the following features:
+
+- **Capacity**: The inventory can display 36 items per page. If the player has more than 36 items, pagination is enabled with navigation arrows to switch between pages.
+- **Weight Indicator**: Displays the current weight and maximum weight limit of the player's inventory.
+- **Item Display**: Each item is shown with its sprite and quantity. Hovering over an item displays a tooltip with its name, description, and base value.
+- **Item Actions**: Clicking on an item opens a menu with options to favorite or discard the item. Favorited items are moved to the top of the inventory list. Discarding items allows the player to specify the quantity to discard.
+
+#### Inventory System Key Files and Implementation
+
+- [game/inventory/inventory.rpy](https://github.com/Chthonic-Studio/Diary-of-a-Caravaneer/blob/main/game/inventory/inventory.rpy): The basis of the inventory system with class definitions
+- [game/inventory/items.rpy](https://github.com/Chthonic-Studio/Diary-of-a-Caravaneer/blob/main/game/inventory/items.rpy): Defines all items and their categories.
+- [game/inventory/inventory_screen.rpy](https://github.com/Chthonic-Studio/Diary-of-a-Caravaneer/blob/main/game/inventory/inventory_screen.rpy): Implements the inventory UI and logic, including item display, pagination, weight indicator, and item actions.
 
 
