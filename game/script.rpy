@@ -1,33 +1,20 @@
 ﻿# The script of the game goes in this file.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
 define e = Character("Eileen")
 
+# Main Characters
+define merchant = Character("Merchant")
+define son = Character("Son")
+define daughter = Character("Daughter")
+
+# Initialize inventory with a maximum weight of 100 kg
+default inventory = Inventory(max_weight=100)
 
 # The game starts here.
 
 label start:
+    e "Welcome to the game!"
+    menu:
+        "Go to Testing Screen":
+            call screen testing_screen()
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene bg room
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    show eileen happy
-
-    # These display lines of dialogue.
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
-
-    return

@@ -30,6 +30,8 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+Diary of a Caravaneer is a trade and economic simulator RPG game developed in Ren'Py. 
+Players take on the role of a merchant traveling with his son and daughter through a world on the brink of conflict.
 """)
 
 
@@ -84,12 +86,12 @@ define config.intra_transition = dissolve
 
 ## A transition that is used after a game has been loaded.
 
-define config.after_load_transition = None
+define config.after_load_transition = ease
 
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = ease
 
 
 ## A variable to set the transition used when the game starts does not exist.
