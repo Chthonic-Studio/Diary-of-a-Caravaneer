@@ -1,14 +1,4 @@
 init python:
-    class Item:
-        def __init__(self, name, description, base_value, weight, sprite):
-            self.name = name
-            self.description = description
-            self.base_value = base_value
-            self.weight = weight
-            self.sprite = sprite
-            self.quantity = 1
-            self.favorite = False
-
     class Inventory:
         def __init__(self, max_weight):
             self.items = []
