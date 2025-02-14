@@ -1,4 +1,5 @@
 screen book_menu():
+    zorder 5
     frame:
         background Frame("images/ui/menuDesk.png", 10, 10)  # Background image for the book menu resized to fit
         xalign 0.0
