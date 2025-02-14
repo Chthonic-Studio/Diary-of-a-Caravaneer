@@ -14,6 +14,7 @@ default inventory = Inventory(max_weight=100)
 
 label start:
     e "Welcome to the game!"
+    show screen book_menu
     menu:
         "Go to Testing Screen":
             call screen testing_screen()

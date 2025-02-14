@@ -6,10 +6,8 @@ screen testing_screen():
         yalign 0.5
         has vbox
 
-        text "Testing Screen" size 40
+        text "Testing Screen" size 60
 
-        textbutton "Open Inventory" action [SetScreenVariable("current_menu", "inventory"), Show("book_menu"), Show("sub_menu")]
-        textbutton "Open Relationships" action [SetScreenVariable("current_menu", "relationships"), Show("book_menu"), Show("sub_menu")]        
         textbutton "Add Apple" action Function(inventory.add_item, ITEMS["apple"])
         textbutton "Add Strawberry" action Function(inventory.add_item, ITEMS["strawberry"])
         textbutton "Add Bread" action Function(inventory.add_item, ITEMS["bread"])

@@ -534,6 +534,12 @@ style return_button:
     yalign 1.0
     yoffset -45
 
+screen keymap_handler():
+    key "inventory" action If(current_menu == "inventory", [Hide("sub_menu"), Hide("book_menu"), SetScreenVariable("current_menu", None)], [SetScreenVariable("current_menu", "inventory"), Show("sub_menu")])
+    key "relationships" action If(current_menu == "relationships", [Hide("sub_menu"), Hide("book_menu"), SetScreenVariable("current_menu", None)], [SetScreenVariable("current_menu", "relationships"), Show("sub_menu")])
+
+# Ensure the keymap handler is included in the main game screen
+show screen keymap_handler
 
 ## About screen ################################################################
 ##

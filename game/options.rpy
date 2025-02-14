@@ -66,6 +66,8 @@ define config.has_voice = True
 
 # define config.main_menu_music = "main-menu-theme.ogg"
 
+define config.keymap["inventory"] = [ "i" ]
+define config.keymap["relationships"] = [ "p" ]
 
 ## Transitions #################################################################
 ##
