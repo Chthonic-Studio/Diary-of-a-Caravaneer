@@ -47,3 +47,6 @@ init python:
         def prev_page(self):
             if self.current_page > 0:
                 self.current_page -= 1
+
+    def discard_selected_item(quantity):
+        inventory.remove_item(selected_item.name, int(quantity))
