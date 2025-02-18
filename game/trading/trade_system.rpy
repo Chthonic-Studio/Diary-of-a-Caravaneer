@@ -1,4 +1,4 @@
-init python:
+init -10 python:
     class TradeSystem:
         def __init__(self):
             self.locations = {}
@@ -24,11 +24,11 @@ init python:
             return base_price * (1 + demand_modifier * 0.5)
 
         def update_location_economic_power(self, location, amount):
-            location.economic_power = min(100, location.economic_power + amount * 0.01)
+            location.update_economic_power(amount)
 
         def update_item_demand(self, location, item, base_stock, current_stock):
             demand = (base_stock - current_stock) / base_stock * 100
-            location.item_demands[item] = min(100, demand)
+            location.update_item_demand(item, demand - location.item_demands.get(item, 0))
 
         def buy_item(self, store, item, quantity):
             price = self.calculate_buy_price(store, item) * quantity
@@ -52,4 +52,5 @@ init python:
                 return True
             return False
 
+    # Initialize the trade system instance
     trade_system = TradeSystem()

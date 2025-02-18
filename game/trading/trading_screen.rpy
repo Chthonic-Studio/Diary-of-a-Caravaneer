@@ -1,5 +1,8 @@
-default selected_item = None
-default hovered_item = None
+init python:
+    if "selected_item" not in globals():
+        selected_item = None
+    if "hovered_item" not in globals():
+        hovered_item = None
 
 screen trading_screen(store):
     tag menu
@@ -35,7 +38,7 @@ screen trading_screen(store):
             grid 6 6:
                 spacing 5
                 for item_name, details in store.stock.items():
-                    item = ITEMS[item_name]
+                    $ item = ITEMS[item_name]
                     frame:
                         background None
                         has vbox

@@ -20,7 +20,7 @@ init python:
                 for dependency in self.dependencies:
                     if item in dependency.item_demands:
                         dependency.item_demands[item] = (dependency.item_demands[item] + self.item_demands[item]) / 2
-
+init python:
     # Define the locations and their economic power
     LOCATIONS = {
         "Aldburg": Location("Aldburg", 50),
@@ -54,7 +54,7 @@ init python:
     LOCATIONS["Windmill Stop"].dependencies = [LOCATIONS["Rockmount"]]
     LOCATIONS["Creek Camp"].dependencies = [LOCATIONS["Ashport"]]
     LOCATIONS["Oak Haven"].dependencies = [LOCATIONS["Breezeport"]]
-    LOCATIONS["Ruined watchtower"].dependencies = [LOCATIONS["Weglete"]]
+    LOCATIONS["Ruined Watchtower"].dependencies = [LOCATIONS["Weglete"]]
     LOCATIONS["Mushroom Glade"].dependencies = [LOCATIONS["Rocheguet"]]
     LOCATIONS["Lumber Crossing"].dependencies = [LOCATIONS["Greenwood"]]
     LOCATIONS["Canyon Pass"].dependencies = [LOCATIONS["Cragbrook"]]
