@@ -48,4 +48,6 @@ label start:
     menu:
         "Go to Testing Screen":
             call screen testing_screen()
+        "Go to Trade Testing Screen":
+            call screen trade_testing_screen()
     return

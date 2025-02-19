@@ -29,8 +29,8 @@ init python:
     store1.set_stock("bread", 50, 30, 10)
 
     store2 = Store("Rockmount Market", "Food", 800, trade_system.locations["Rockmount"])
-    store2.set_stock("apple", 150, 30, 30)
-    store2.set_stock("bread", 80, 30, 15)
+    store2.set_stock("wood", 150, 30, 30)
+    store2.set_stock("stone", 80, 30, 15)
 
     trade_system.stores[store1.name] = store1
     trade_system.stores[store2.name] = store2

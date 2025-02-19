@@ -28,8 +28,8 @@ screen trading_screen(store):
                                     idle item.sprite
                                     hover item.sprite
                                     background None
-                                    action [SetVariable("selected_item", item), Show("item_options")]
-                                    hovered [SetVariable("hovered_item", item), Show("item_info", item=item)]
+                                    action [SetVariable("selected_item", item), Show("item_options", is_store_item=False)]
+                                    hovered [SetVariable("hovered_item", item), Show("item_info", item=item, store=store, is_store_item=False)]
                                     unhovered [Hide("item_info"), SetVariable("hovered_item", None)]
                                 text str(item.quantity) size 25 xalign 0.5 yalign 0.5 style "inventory_text"
 
@@ -47,12 +47,12 @@ screen trading_screen(store):
                                 idle item.sprite
                                 hover item.sprite
                                 background None
-                                action [SetVariable("selected_item", item), Show("item_options")]
-                                hovered [SetVariable("hovered_item", item), Show("item_info", item=item)]
+                                action [SetVariable("selected_item", item), Show("item_options", is_store_item=True)]
+                                hovered [SetVariable("hovered_item", item), Show("item_info", item=item, store=store, is_store_item=True)]
                                 unhovered [Hide("item_info"), SetVariable("hovered_item", None)]
                             text str(details["quantity"]) size 25 xalign 0.5 yalign 0.5 style "inventory_text"
 
-screen item_options():
+screen item_options(is_store_item):
     modal True
     zorder 20
     frame:
@@ -61,10 +61,13 @@ screen item_options():
         background "#888C"
         has vbox
         text "What would you like to do with [selected_item.name]?" size 30 style "inventory_text"
-        textbutton "Buy/Sell" action [Function(trade_item, selected_item.name), Hide("item_options")] style "item_options"
+        if is_store_item:
+            textbutton "Buy" action [Function(trade_system.buy_item, store, selected_item, 1), Hide("item_options")] style "item_options"
+        else:
+            textbutton "Sell" action [Function(trade_system.sell_item, store, selected_item, 1), Hide("item_options")] style "item_options"
         textbutton "Cancel" action [Hide("item_options")] style "item_options"
 
-screen item_info(item):
+screen item_info(item, store, is_store_item):
     zorder 50
     if hovered_item:
         frame:
@@ -73,7 +76,14 @@ screen item_info(item):
             has vbox
             text item.name size 35 style "item_info_text"
             text item.description size 25 style "item_info_text"
-            text "Value: [item.base_value] gold" size 25 style "item_info_text"
+            text "Base Value: [item.base_value] gold" size 25 style "item_info_text"
+            if is_store_item:
+                text "Sell Price: [trade_system.calculate_sell_price(store, item)] gold" size 25 style "item_info_text"
+            else:
+                text "Buy Price: [trade_system.calculate_buy_price(store, item)] gold" size 25 style "item_info_text"
+
+screen trading_screen_background():
+    key "mouseup_0" action Return()
 
 transform center_background:
     xalign 0.5

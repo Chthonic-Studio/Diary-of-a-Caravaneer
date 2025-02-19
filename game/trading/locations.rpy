@@ -75,7 +75,7 @@ init python:
     LOCATIONS["Aldburg"].set_item_demand("strawberry", 40)
     # Raw Materials
     LOCATIONS["Aldburg"].set_item_demand("wood", 30)
-    LOCATIONS["Aldburg"].set_item_demand("stone", 30)
+    LOCATIONS["Aldburg"].set_item_demand("stone", 40)
     LOCATIONS["Aldburg"].set_item_demand("iron", 20)
     LOCATIONS["Aldburg"].set_item_demand("iron_ore", 25)
     LOCATIONS["Aldburg"].set_item_demand("copper_ore", 20)
@@ -236,8 +236,8 @@ init python:
     LOCATIONS["Rockmount"].set_item_demand("bread", 50)
     LOCATIONS["Rockmount"].set_item_demand("strawberry", 40)
     # Raw Materials
-    LOCATIONS["Rockmount"].set_item_demand("wood", 30)
-    LOCATIONS["Rockmount"].set_item_demand("stone", 30)
+    LOCATIONS["Rockmount"].set_item_demand("wood", 40)
+    LOCATIONS["Rockmount"].set_item_demand("stone", 20)
     LOCATIONS["Rockmount"].set_item_demand("iron", 20)
     LOCATIONS["Rockmount"].set_item_demand("iron_ore", 25)
     LOCATIONS["Rockmount"].set_item_demand("copper_ore", 20)
