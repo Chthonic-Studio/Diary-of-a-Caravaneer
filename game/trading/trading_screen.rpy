@@ -9,19 +9,20 @@ screen trading_screen(store):
     zorder 10
 
     frame:
-        background "images/ui/trading_background.png"
+        background "images/ui/menuDesk.png"
         xalign 0.5
         yalign 0.5
         has hbox
 
         vbox:
+            xalign 0.7
             text "Player's Inventory" size 40
             grid 6 6:
                 spacing 5
                 for item in inventory.items:
                     if item.name in store.stock:
                         frame:
-                            background None
+                            background "images/ui/shopPaper.png"
                             has vbox
                             if item.sprite:
                                 imagebutton:
@@ -34,13 +35,14 @@ screen trading_screen(store):
                                 text str(item.quantity) size 25 xalign 0.5 yalign 0.5 style "inventory_text"
 
         vbox:
+            xalign 0.3
             text store.name size 40
             grid 6 6:
                 spacing 5
                 for item_name, details in store.stock.items():
                     $ item = ITEMS[item_name]
                     frame:
-                        background None
+                        background "images/ui/shopPaper.png"
                         has vbox
                         if item.sprite:
                             imagebutton:
