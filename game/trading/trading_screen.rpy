@@ -7,15 +7,16 @@ init python:
 screen trading_screen(store):
     tag menu
     zorder 10
+    add "images/ui/menuDesk.png" at center_background
 
     frame:
-        background "images/ui/menuDesk.png"
-        xalign 0.5
+        background None
+        xalign 0.4
         yalign 0.5
         has hbox
 
         vbox:
-            xalign 0.7
+            pos (100, 200)
             text "Player's Inventory" size 40
             grid 6 6:
                 spacing 5
@@ -35,7 +36,7 @@ screen trading_screen(store):
                                 text str(item.quantity) size 25 xalign 0.5 yalign 0.5 style "inventory_text"
 
         vbox:
-            xalign 0.3
+            pos (600, 200)
             text store.name size 40
             grid 6 6:
                 spacing 5
@@ -90,7 +91,7 @@ screen trading_screen_background():
 transform center_background:
     xalign 0.5
     yalign 0.5
-    size (1400, 1125)
+    size (1240, 675)
 
 style inventory_text is default:
     color "#000"
