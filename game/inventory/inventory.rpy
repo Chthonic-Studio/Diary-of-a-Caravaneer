@@ -68,5 +68,11 @@ init python:
             if self.current_page > 0:
                 self.current_page -= 1
 
+        def get_item_quantity(self, item_name):
+            for item in self.items:
+                if item.name == item_name:
+                    return item.quantity
+            return 0
+
     def discard_selected_item(quantity):
         inventory.remove_item(selected_item.name, int(quantity))
