@@ -69,5 +69,13 @@ init -10 python:
             renpy.show_screen("gold_warning", message="The store doesn't have enough gold!")
             return False
 
+    def handle_buy_item(trading_store, item, quantity):
+        if not trade_system.buy_item(trading_store, item, quantity):
+            renpy.show_screen("gold_warning", message="Transaction failed!")
+
+    def handle_sell_item(trading_store, item, quantity):
+        if not trade_system.sell_item(trading_store, item, quantity):
+            renpy.show_screen("gold_warning", message="Transaction failed!")
+
     # Initialize the trade system instance
     trade_system = TradeSystem()

@@ -87,9 +87,9 @@ screen item_quantity_options(is_store_item, trading_store):
         text "Quantity:" size 25 style "inventory_text"
         input value VariableInputValue("transaction_quantity") length 4 allow "0123456789" default "1" style "input_text"
         if is_store_item:
-            textbutton "Confirm" action [Function(trade_system.buy_item, trading_store, selected_item, transaction_quantity), Hide("item_quantity_options"), Show("trading_screen", trading_store=trading_store)] style "item_options"
+            textbutton "Confirm" action [Function(handle_buy_item, trading_store, selected_item, transaction_quantity), Hide("item_quantity_options")] style "item_options"
         else:
-            textbutton "Confirm" action [Function(trade_system.sell_item, trading_store, selected_item, transaction_quantity), Hide("item_quantity_options"), Show("trading_screen", trading_store=trading_store)] style "item_options"
+            textbutton "Confirm" action [Function(handle_sell_item, trading_store, selected_item, transaction_quantity), Hide("item_quantity_options")] style "item_options"
         textbutton "Cancel" action [Hide("item_quantity_options"), Show("item_options", is_store_item=is_store_item, trading_store=trading_store)] style "item_options"
 
 screen item_info(item, trading_store, is_store_item):
