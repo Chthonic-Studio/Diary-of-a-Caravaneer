@@ -12,21 +12,26 @@ screen trading_screen(trading_store):
     add "images/ui/menuDesk.png" at trade_center_background
 
     frame:
+        xalign 0.45
+        yalign 0.35
         background None
-        xalign 0.4
-        yalign 0.5
         has hbox
+        # Position the player's inventory on the left
+        add "images/ui/shopPaper.png" xpos 200 ypos 50 size (540, 635)
+        # Position the store's inventory on the right
+        add "images/ui/shopPaper.png" xpos 320 ypos 50 size (540, 635)
+
 
         vbox:
-            pos (100, 200)
-            text "Player's Inventory" size 40
+            pos (-750, 150)
+            text "Player's Inventory" size 40 style "inventory_text"
             text "Gold: [inventory.gold]" size 30 style "inventory_text"
             grid 6 6:
                 spacing 5
                 for item in inventory.items:
                     if item.name.lower() in trading_store.stock:
                         frame:
-                            background "images/ui/shopPaper.png"
+                            background None
                             has vbox
                             if item.sprite:
                                 imagebutton:
@@ -34,20 +39,20 @@ screen trading_screen(trading_store):
                                     hover item.sprite
                                     background None
                                     action [SetVariable("selected_item", item), Show("item_options", is_store_item=False, trading_store=trading_store)]
-                                    hovered [SetVariable("hovered_item", item), Show("item_info", item=item, trading_store=trading_store, is_store_item=False)]
-                                    unhovered [Hide("item_info"), SetVariable("hovered_item", None)]
+                                    hovered [SetVariable("hovered_item", item), Show("store_item_info", item=item, trading_store=trading_store, is_store_item=False)]
+                                    unhovered [Hide("store_item_info"), SetVariable("hovered_item", None)]
                                 text str(item.quantity) size 25 xalign 0.5 yalign 0.5 style "inventory_text"
 
         vbox:
-            pos (600, 200)
-            text trading_store.name size 40
+            pos (-300, 150)
+            text trading_store.name size 40 style "inventory_text"
             text "Gold: [trading_store.gold]" size 30 style "inventory_text"
             grid 6 6:
                 spacing 5
                 for item_name, details in trading_store.stock.items():
                     $ item = ITEMS[item_name]
                     frame:
-                        background "images/ui/shopPaper.png"
+                        background None
                         has vbox
                         if item.sprite:
                             imagebutton:
@@ -55,8 +60,8 @@ screen trading_screen(trading_store):
                                 hover item.sprite
                                 background None
                                 action [SetVariable("selected_item", item), Show("item_options", is_store_item=True, trading_store=trading_store)]
-                                hovered [SetVariable("hovered_item", item), Show("item_info", item=item, trading_store=trading_store, is_store_item=True)]
-                                unhovered [Hide("item_info"), SetVariable("hovered_item", None)]
+                                hovered [SetVariable("hovered_item", item), Show("store_item_info", item=item, trading_store=trading_store, is_store_item=True)]
+                                unhovered [Hide("store_item_info"), SetVariable("hovered_item", None)]
                             text str(details["quantity"]) size 25 xalign 0.5 yalign 0.5 style "inventory_text"
 
 screen item_options(is_store_item, trading_store):
@@ -92,7 +97,7 @@ screen item_quantity_options(is_store_item, trading_store):
             textbutton "Confirm" action [Function(handle_sell_item, trading_store, selected_item, transaction_quantity), Hide("item_quantity_options")] style "item_options"
         textbutton "Cancel" action [Hide("item_quantity_options"), Show("item_options", is_store_item=is_store_item, trading_store=trading_store)] style "item_options"
 
-screen item_info(item, trading_store, is_store_item):
+screen store_item_info(item, trading_store, is_store_item):
     zorder 50
     if hovered_item:
         frame:
