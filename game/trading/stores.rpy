@@ -32,5 +32,13 @@ init python:
     store2.set_stock("wood", 150, 30, 30)
     store2.set_stock("stone", 80, 30, 15)
 
+    #region Stores
+
+    # Aldburg Stores
+
+    
+
+
+    #endregion
     trade_system.add_store(store1)
     trade_system.add_store(store2)

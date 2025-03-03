@@ -123,7 +123,7 @@ init python:
         "barrel": Item(name="Barrel", description="A barrel.", base_value=10, weight=10.0, sprite="images/ui/icons/Barrel.png", category="Tools & Equipment"),
         "pickaxe": Item(name="Pickaxe", description="A pickaxe.", base_value=15, weight=3.0, sprite="images/ui/icons/Pickaxe.png", category="Tools & Equipment"),
         "shovel": Item(name="Shovel", description="A shovel.", base_value=10, weight=2.5, sprite="images/ui/icons/Shovel.png", category="Tools & Equipment"),
-        "hammer": Item(name="Hammer", description="A hammer.", base_value=8, weight=1.5, sprite="images/ui/icons/Hammer.png", category="Tools & Equipment"),
+        "hammer": Item(name="Hammer", description=  "A hammer.", base_value=8, weight=1.5, sprite="images/ui/icons/Hammer.png", category="Tools & Equipment"),
         "axe": Item(name="Axe", description="An axe.", base_value=12, weight=2.5, sprite="images/ui/icons/Axe.png", category="Tools & Equipment"),
         "clamps": Item(name="Clamps", description="A set of clamps.", base_value=5, weight=1.0, sprite="images/ui/icons/Clamps.png", category="Tools & Equipment"),
         "scythe": Item(name="Scythe", description="A scythe.", base_value=10, weight=2.0, sprite="images/ui/icons/Scythe.png", category="Tools & Equipment"),
